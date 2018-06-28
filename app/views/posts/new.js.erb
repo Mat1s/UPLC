@@ -1,0 +1,5 @@
+$('#new_link').hide().after('<%= j render("form") %>').after(function(){
+	$("button_add").click(function(){
+		$("#new_pic").append("<p>Hello</p>");
+	});
+});

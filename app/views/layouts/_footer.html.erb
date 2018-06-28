@@ -1,0 +1,8 @@
+	<br>
+	<% if user_signed_in? %>
+		<span><%= current_user.id %></span>
+	<% end %>
+	<br>
+	<br>
+	<%= params.inspect %>
+	<%= debug(params) %>

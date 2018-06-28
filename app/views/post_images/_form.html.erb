@@ -1,0 +1,10 @@
+<%= form_for @post_image do |pi| %>
+	<div class="field">
+    <%= pi.label :avatar %><br>
+    <%= pi.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= pi.submit %>
+  </div>
+<% end %>

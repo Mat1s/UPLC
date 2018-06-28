@@ -1,0 +1,20 @@
+development: &defaults
+  :facebook:
+    :app_id: '237759266807516'
+    :app_secret: 'fa377dad0077f22b0f4e17651d142ff9'
+  :vk:
+    :api_id: '5990567'
+    :api_secret: 'J1Ga6egCwXQXCU2tNCBz'
+  :amazon:
+    :api_id: 'amzn1.application-oa2-client.ad959995fcf34f69a36ad0c6203c6e3d'
+    :api_secret: '3592d5b187b1530d4be9caa9a2f26abe949b969ed1376c5e0d6bec375a642ff3'
+  :twitter:
+    :api_id: 'wbZxBMYy2Pvmr6YY4lBXvg242'                                                                                                                                                        
+    :api_secret: 'UJCcNhYVloK4B6j2te79By9rl4EKkfraOSQzkc0woYU3CTEOnv'
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  

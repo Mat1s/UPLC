@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appl</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="footer">
+      <div class="row col-lg-12 col-md-12">
+        <div class="jumbotron col-md-12">
+          <%= render 'layouts/header' %>
+        </div>
+        <div class="container">
+          <%= yield %>
+        </div>
+        <div class="header">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

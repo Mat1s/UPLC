@@ -1,0 +1,5 @@
+<%= form_for [@post_image, @comment], url: { action: "create" } do |f| %>
+  <%= f.hidden_field :parent_id %>
+  <%= f.text_field :body %>
+  <%= f.submit "Create comment" %>
+<% end %>

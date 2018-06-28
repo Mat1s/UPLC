@@ -1,0 +1,7 @@
+<div class="well-sm">
+	<blockquote>
+		<small>Created <%= distance_of_time_in_words_to_now(comment.created_at) %> ago</small>
+		<p><strong><%= comment.body %></strong></p>
+		<footer><small><%= link_to "reply to #{comment.id}", post_image_new_comment_path(comment.post_image_id, comment.id), id: "new_nest_comment_#{comment.id}" %></small></footer>
+	</blockquote>
+</div>

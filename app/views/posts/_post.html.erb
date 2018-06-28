@@ -1,0 +1,29 @@
+<div class="row" style="border: 2px; padding: 10px">
+	<h4 class="text-center"><%= post.name %><br</h4>
+	<div class="text-left">
+		<div class="img-thumbnail">
+			<% if post.post_images[0] %>
+				<%= link_to (image_tag(post.post_images[0].avatar.url, height: "300", class: "img-rounded")), post_path(post) %>
+			<% else %>
+				<%= link_to (image_tag("/uploads/images.jpeg", height: "300", class: "img-rounded")), post_path(post)%>
+			<% end %>
+		</div>
+
+
+		<%= post.get_likes.size %>- Likes<br>
+		<%= post.get_dislikes.size %>- Dislikes<br>
+		<% if current_user %>	
+			<% if !current_user.voted_for? post %>
+				<%= link_to (image_tag("/uploads/like.jpg", height: "50")), like_post_path(post.id), method: :post, remote: true  %>
+				<%= link_to (image_tag("/uploads/dislike.jpg", height: "50")), dislike_post_path(post.id), method: :post %>
+			<% elsif current_user.voted_up_on?(post)  %>
+				<%= link_to "UNLIKE", like_post_path(post.id), method: :delete  %>
+			<% elsif current_user.voted_down_for?(post)  %>
+				<%= link_to "UNDISLIKE", dislike_post_path(post.id), method: :delete %>
+			<% end %>
+			<%  if current_user == User.find(post.user_id) %>
+				<%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?" }, remote: true %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

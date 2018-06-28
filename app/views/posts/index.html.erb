@@ -1,0 +1,9 @@
+<h1 class="text-center">Posts</h1>
+<%= link_to "New post", new_post_path, id: "new_link", remote: true %>
+
+<div id="posts">
+	<%= render @posts %>
+</div>
+<hr>
+
+

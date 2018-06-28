@@ -1,0 +1,12 @@
+<%= bootstrap_form_with model: @post, :html => { :multipart => true, id: "new_form" }, remote: true do |p| %>
+	<%= hidden_field_tag :user_id, current_user.id %>
+	<%= p.text_field :name, required: true %>
+
+	<%= p.fields_for :post_images do |pi|%>
+		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]", id: "new_pic" %>
+		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]" %>
+		<button type="button" id="button_add">Add hello</button>
+	<% end %>
+  <%= p.submit "Create new post" %>
+
+<% end %>
