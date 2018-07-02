@@ -5,7 +5,7 @@
 	<%= p.fields_for :post_images do |pi|%>
 		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]", id: "new_pic" %>
 		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]" %>
-		<button type="button" id="button_add">Add hello</button>
+		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]" %>
 	<% end %>
   <%= p.submit "Create new post" %>
 

@@ -9,21 +9,22 @@
 			<% end %>
 		</div>
 
-
-		<%= post.get_likes.size %>- Likes<br>
+	<div class="text-lowercase" style="font-family: sans-serif; color: #8B8989; font-size: 15px;">	
+		<%= post.get_likes.size %>- Likes |
 		<%= post.get_dislikes.size %>- Dislikes<br>
 		<% if current_user %>	
 			<% if !current_user.voted_for? post %>
-				<%= link_to (image_tag("/uploads/like.jpg", height: "50")), like_post_path(post.id), method: :post, remote: true  %>
+				<%= link_to (image_tag("/uploads/like.jpg", height: "50")), like_post_path(post.id), method: :post %>
 				<%= link_to (image_tag("/uploads/dislike.jpg", height: "50")), dislike_post_path(post.id), method: :post %>
 			<% elsif current_user.voted_up_on?(post)  %>
-				<%= link_to "UNLIKE", like_post_path(post.id), method: :delete  %>
+				<%= link_to "UNLIKE", like_post_path(post.id), method: :delete %>
 			<% elsif current_user.voted_down_for?(post)  %>
 				<%= link_to "UNDISLIKE", dislike_post_path(post.id), method: :delete %>
-			<% end %>
+			<% end %><br>
 			<%  if current_user == User.find(post.user_id) %>
 				<%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?" }, remote: true %>
 			<% end %>
 		<% end %>
+	</div>
 	</div>
 </div>
