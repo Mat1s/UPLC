@@ -4,24 +4,31 @@
     <title>Appl</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.polyfill.io/v1/polyfill.js?features=es6"></script>
   </head>
 
   <body>
-    <div class="footer">
-      <div class="row col-lg-12 col-md-12">
-        <div class="jumbotron col-md-12">
-          <%= render 'layouts/header' %>
-        </div>
-        <div class="container">
-          <%= yield %>
-        </div>
-        <div class="header">
-          <%= render 'layouts/footer' %>
-        </div>
-      </div>
+
+    <div class="header">
+      <%= render 'layouts/header' %>
     </div>
+    <div class="col-lg-3">
+    </div>    
+    <div class="col-lg-6">
+      <%= yield %>
+    </div>
+    <div class="col-lg-3">
+    </div>
+    <% if Rails.env.development? %>    
+      <div class="footer">
+        <%= render 'layouts/footer' %>
+      </div>
+    <% end %>
+
   </body>
 </html>

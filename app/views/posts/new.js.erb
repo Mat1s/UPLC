@@ -1,2 +1,5 @@
 $('#new_link').hide().after('<%= j render("form") %>');
+$('#add_file_field').click(function(){
+	$("#first_pic").clone().val('').addClass("form-group").appendTo(".added_field");
+});
 	

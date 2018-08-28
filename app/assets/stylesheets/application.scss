@@ -1,5 +1,53 @@
-
 @import "bootstrap";
 .replies {
 	margin-left: 40px;
 	}
+h1, h3{
+	text-align: center;
+	margin: auto;
+}
+.post{
+	margin: 4px;
+	border: 1px solid #8B8378;
+	border-radius: 5px;
+	overflow: auto;
+	padding: 2px;
+	color: orange;
+	text-transform: capitalize;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: green;
+}
+
+a:active {
+    color: green;
+}
+
+.footer{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%; }
+
+.btnn {
+	width: 100%;
+}
+
+

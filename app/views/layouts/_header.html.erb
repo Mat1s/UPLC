@@ -1,12 +1,19 @@
-<h1 class="text-center">Blog with beautiful photos</h1>
-<h4 class="text-center">
-	<% if user_signed_in? %>
-		<span><%= current_user.name %></span>
-		<%= link_to 'Sign_out', destroy_user_session_path, method: :delete %>
-	<% else %>
-		<%= link_to 'Sign_in', new_user_session_path %> |
-  	<%= link_to 'Create account', new_user_registration_path %> |
-		<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> |
-		<%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path %>
-	<% end %>
-</h4>
+<div class="container">
+	<div class="jumbotron">
+		<div class="text-center">
+			<h1>Blog with beautiful photos</h1>
+			<h4>
+				<% if user_signed_in? %>
+					<span><%= current_user.name %></span>
+					<%= link_to 'Sign_out', destroy_user_session_path, method: :delete %>
+				<% else %>
+					<%= link_to 'Sign_in', new_user_session_path %> |
+			  	<%= link_to 'Create account', new_user_registration_path %> |
+					<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> |
+					<%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path %>
+				<% end %>
+			</h4>
+		</div>
+	</div>
+</div>	
+

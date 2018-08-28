@@ -3,10 +3,8 @@ Rails.application.routes.draw do
 
 	resources :posts do 
 		member do 
-			post :like 
-			delete :like
+			post :like
 			post :dislike
-			delete :dislike
 		end
 	end
 

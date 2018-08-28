@@ -1,12 +1,14 @@
-<%= bootstrap_form_with model: @post, :html => { :multipart => true, id: "new_form" }, remote: true do |p| %>
-	<%= hidden_field_tag :user_id, current_user.id %>
-	<%= p.text_field :name, required: true %>
+	<%= bootstrap_form_with model: @post, :html => { :multipart => true, id: "post_form" }, remote: true do |p| %>
+		<%= hidden_field_tag :user_id, current_user.id %>
+		<%= p.text_field :name, required: true, autofocus: true %>
 
-	<%= p.fields_for :post_images do |pi|%>
-		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]", id: "new_pic" %>
-		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]" %>
-		<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]" %>
+		<%= p.fields_for :post_images do |pi|%>
+			<%= button_tag "Add image", type: 'button', id: "add_file_field", class: "btnn btn btn-info form-group" %>
+			<%= pi.file_field :avatar, multiple: true, name: "post_images[avatar][]", class: "btn", id: "first_pic" %>
+			
+			<div class="added_field"></div>
+			
+		<% end %></br>
+
+	  <%= p.submit "Create new post", class: "btn btn-primary btnn" %>
 	<% end %>
-  <%= p.submit "Create new post" %>
-
-<% end %>

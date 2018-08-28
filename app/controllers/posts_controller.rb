@@ -1,13 +1,10 @@
 class PostsController < ApplicationController
   include PostsHelper
   before_action :authenticate_user!, except: [:index]
-  before_action :set_post, only: [:show, :destroy]
-  respond_to :html, :js
+  before_action :get_post, only: [:show, :destroy]
+  before_action :get_posts, only: [:index, :like, :dislike, :destroy, :create]
 
   def index
-    @posts = Post.select('posts.id as id, votes.votable_id, posts.name as name, sum(votes.vote_weight) as sum, posts.user_id, posts.created_at as created_at ').
-    joins('left join votes on posts.id = votes.votable_id').group('posts.id, votes.votable_id').
-    order('sum, created_at DESC') # need refactoring
   end
 
   def new
@@ -24,9 +21,15 @@ class PostsController < ApplicationController
           @post_image = @post.post_images.create!(avatar: avatar)
         end
       end
-      respond_with(@posts)
+      respond_to do |format|
+        format.html { redirect_to @posts }
+        format.js
+      end
     else
-      respond_with(@posts)
+      respond_to do |format|
+        format.html { redirect_to :root_url }
+        format.js
+      end
     end
   end
 
@@ -39,25 +42,38 @@ class PostsController < ApplicationController
   end
     
   def show
-    @post = Post.find(params[:id])
     @post_images = @post.post_images.all
   end
 
   def destroy
-    if @post = Post.find(params[:id])
+    if @post
       @post.destroy
-      @posts = Post.all
-      respond_with(@posts)
+      respond_to do |format|
+        format.html { redirect_to @posts }
+        format.js
+      end
     else
-        redirect_to root_url
+      respond_to do |format|
+        format.html { redirect_to :root_url }
+        format.js
+      end
     end
   end
 
   private
-  def set_post
+
+  def get_post
     @post = Post.find_by_id(params[:id])
   end
   
+  def get_posts
+    @posts = Post.
+    select('posts.id as id, votes.votable_id, posts.name as name, sum(votes.vote_weight) as sum, posts.user_id, posts.created_at as created_at ').
+    joins('left join votes on posts.id = votes.votable_id').
+    group('posts.id, votes.votable_id').
+    order('sum(votes.vote_weight) DESC NULLS LAST, posts.id ASC')
+  end
+
   def post_params
     params.require(:post).permit(:name, :user_id, post_images_attributes: [:post_id, :avatar, :id])
   end

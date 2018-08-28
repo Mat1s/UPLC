@@ -6,7 +6,6 @@ module PostsHelper
     else
       @post.unliked_by current_user
     end
-      redirect_to root_url
   end
 
   def comments_tree_for(comments)

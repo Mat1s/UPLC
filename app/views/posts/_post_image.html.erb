@@ -1,4 +1,7 @@
-<%= image_tag(post_image.avatar.url, height: "500", class: "img-thumbnail") %><br>
-<%= link_to "Change image", edit_post_image_path(post_image.id) %><br>
-<%= link_to "Create new comments",  new_post_image_comment_path(post_image.id), id: "new_comment_#{post_image.id}"%><br>
-<%= comments_tree_for post_image.comments.hash_tree %><br>
+<div class="post_images">
+	<%= image_tag(post_image.avatar.url, height: "500", class: "img-thumbnail") %><br>
+	<%= link_to "Change image", edit_post_image_path(post_image.id) %><br>
+	<%= link_to "Create new comments",  new_post_image_comment_path(post_image.id), id: "new_comment_#{post_image.id}", remote: true %><br>
+<div class="comments"><%= comments_tree_for post_image.comments.hash_tree %><br></div>
+
+</div>

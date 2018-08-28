@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :html, :js
+  
   
   def index
     @comment = Comment.hash_tree
@@ -21,12 +21,12 @@ class CommentsController < ApplicationController
     if @comment.save!
     	respond_to do |f|
         f.html { redirect_to @post }
-        f.js   {}
+        f.js { @comment }
       end
     else
     	respond_to do |f|
         f.html { render 'new' }
-        f.js   {}
+        f.js  
       end
     end
   end

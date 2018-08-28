@@ -1,4 +1,4 @@
-<%= form_for [@post_image, @comment], url: { action: "create" } do |f| %>
+<%= form_for [@post_image, @comment], url: { action: "create" }, remote: true do |f| %>
   <%= f.hidden_field :parent_id %>
   <%= f.text_field :body %>
   <%= f.submit "Create comment" %>

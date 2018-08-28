@@ -1,9 +1,7 @@
-<h1 class="text-center">Posts</h1>
+<h1>Posts</h1>
 <%= link_to "New post", new_post_path, id: "new_link", remote: true %>
-
 <div id="posts">
-	<%= render @posts %>
+	<div class="text-center">
+		<%= render @posts %>
+	</div>
 </div>
-<hr>
-
-

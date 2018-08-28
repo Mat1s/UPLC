@@ -15,10 +15,10 @@
 
 # Ignore uploaded files in development
 /storage/*
-
+# /config/oauth.yml
 /node_modules
 /yarn-error.log
-
+/public/uploads/post_image
 /public/assets
 .byebug_history
 
