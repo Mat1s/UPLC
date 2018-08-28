@@ -1,7 +1,11 @@
 <h1>Posts</h1>
-<%= link_to "New post", new_post_path, id: "new_link", remote: true %>
-<div id="posts">
-	<div class="text-center">
-		<%= render @posts %>
+<% if !@posts %>
+	<%= link_to "New post", new_post_path, id: "new_link", remote: true %>
+	<div id="posts">
+		<div class="text-center">
+			<%= render @posts %>
+		</div>
 	</div>
-</div>
+<% else %>
+	<p><i><b>No posts. Be the first!</b></i></p>
+<% end %>

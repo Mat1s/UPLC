@@ -3,13 +3,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  OAUTH_CREDENTIALS = YAML.load_file(Rails.root.join('config', 'oauth.yml'))[Rails.env]
+  config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_APP_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
   
-  config.omniauth :facebook, OAUTH_CREDENTIALS[:facebook][:app_id],
-    OAUTH_CREDENTIALS[:facebook][:app_secret] 
-  
-  config.omniauth :twitter, OAUTH_CREDENTIALS[:twitter][:api_id], 
-    OAUTH_CREDENTIALS[:twitter][:api_secret] 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
