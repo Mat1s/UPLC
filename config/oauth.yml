@@ -3,8 +3,8 @@ development: &defaults
     :app_id: '237759266807516'
     :app_secret: 'fa377dad0077f22b0f4e17651d142ff9'
   :twitter:
-    :api_id: 'wbZxBMYy2Pvmr6YY4lBXvg242'                                                                                                                                                        
-    :api_secret: 'UJCcNhYVloK4B6j2te79By9rl4EKkfraOSQzkc0woYU3CTEOnv'
+    :api_id: '8tY1BrpKJfFjEAu1zd4vHhXml'                                                                                                                                                        
+    :api_secret: 'XPQ50ksKPliwiSaB3yrxJ4OrYzhWk2Ul69IJBaUpBE7YXypy87'
 
 test:
   <<: *defaults
