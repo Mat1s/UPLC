@@ -8,8 +8,8 @@ Devise.setup do |config|
     config.omniauth :twitter, cred.twitter[:api_id], cred.twitter[:api_secret]
     config.omniauth :facebook, cred.facebook[:app_id], cred.facebook[:app_secret]
   elsif Rails.end == "production"
-    config.omniauth :twitter, TWITTER_APP_ID, TWITTER_SECRET
-    config.omniauth :facebook, FACEBOOK_APP_ID, FACEBOOK_SECRET
+    config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_SECRET"]
+    config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"]
   end
     
   
