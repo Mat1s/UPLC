@@ -1,0 +1,10 @@
+$('.new_comment').remove();//remove must
+var idp = '#new_comment_' + '<%= @comment.post_image_id %>';
+if ('<%= @comment.parent_id %>') idp += '_<%= @comment.parent_id %>';
+$(idp).show();
+
+var idc = '#comment_' + '<%= @comment.parent_id %>';
+idc = (idc == '#comment_') ? idp : idc;
+
+$('<%= j render @comment %>').insertAfter(idc).wrap( "<div class='replies'></div>" );
+
