@@ -2,7 +2,7 @@
 <% if current_user %>
 	<%= link_to "New post", new_post_path, id: "new_link", remote: true %>
 <% end %>
-<% if !@posts %>
+<% if @posts %>
 	<div id="posts">
 		<div class="text-center">
 			<%= render @posts %>
@@ -10,5 +10,4 @@
 	</div>
 <% else %>
 	<div id="firsttime"><p><i><b>No posts. Be the first!</b></i></p></div>
-
 <% end %>
