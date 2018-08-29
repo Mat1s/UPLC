@@ -3,14 +3,14 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  if Rails.env == "development"
-    cred = Appl::Application.credentials
-    config.omniauth :twitter, cred.twitter[:api_id], cred.twitter[:api_secret]
-    config.omniauth :facebook, cred.facebook[:app_id], cred.facebook[:app_secret]
-  elsif Rails.end == "production"
-    config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_SECRET"]
-    config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"]
-  end
+  # if Rails.env == "development"
+  #   cred = Appl::Application.credentials
+  #   config.omniauth :twitter, cred.twitter[:api_id], cred.twitter[:api_secret]
+  #   config.omniauth :facebook, cred.facebook[:app_id], cred.facebook[:app_secret]
+  # elsif Rails.end == "production"
+  config.omniauth :twitter, ENV["TWITTER_APP_ID"], ENV["TWITTER_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"]
+  # end
     
   
   # The secret key used by Devise. Devise uses this key to generate
